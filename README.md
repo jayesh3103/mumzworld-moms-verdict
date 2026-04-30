@@ -26,9 +26,6 @@ Built for **Track A (AI Engineering Intern)**.
 
 Here is a look at the Moms Verdict application in action:
 
-<details>
-<summary>Click to expand screenshots</summary>
-
 | Home Page Dashboard | Arabic RTL Localization |
 | :---: | :---: |
 | <img src="Screenshots/screenshot_4.png" width="400"> | <img src="Screenshots/screenshot_7.png" width="400"> |
@@ -44,8 +41,6 @@ Here is a look at the Moms Verdict application in action:
 | Bilingual Summary (Pros/Cons) |
 | :---: |
 | <img src="Screenshots/screenshot_2.png" width="800"> |
-
-</details>
 
 ## 🧩 Problem Selection & Tradeoffs
 
