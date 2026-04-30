@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moms Verdict — AI Review Synthesizer | Mumzworld</title>
+    <meta name="description" content="AI-powered product review synthesizer for Mumzworld. Get instant, structured verdicts from real mom reviews in English and Arabic.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="app-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 25C12 25 14 20 20 20C26 20 28 25 28 25" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="15" cy="16" r="1.5" fill="currentColor"/>
+                        <circle cx="25" cy="16" r="1.5" fill="currentColor"/>
+                        <path d="M17 12C17 12 18 10 20 10C22 10 23 12 23 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="logo-text">Moms Verdict</h1>
+                    <p class="logo-subtitle">AI Review Synthesizer for Mumzworld</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <div class="lang-toggle" id="langToggle">
+                    <button class="lang-btn active" data-lang="both">EN / AR</button>
+                    <button class="lang-btn" data-lang="en">English</button>
+                    <button class="lang-btn" data-lang="ar">العربية</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h2 class="hero-title">What Do Moms <span class="gradient-text">Really</span> Think?</h2>
+            <p class="hero-desc">AI-powered synthesis of real customer reviews. Honest verdicts, safety flags, and bilingual insights — so you can shop with confidence.</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalProducts">20</span>
+                    <span class="stat-label">Products</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="totalReviews">119</span>
+                    <span class="stat-label">Reviews</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2</span>
+                    <span class="stat-label">Languages</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section id="filters">
+        <div class="filter-bar">
+            <button class="filter-chip active" data-category="all">All Products</button>
+            <button class="filter-chip" data-category="car_seats">🚗 Car Seats</button>
+            <button class="filter-chip" data-category="strollers">🍼 Strollers</button>
+            <button class="filter-chip" data-category="feeding">🥣 Feeding</button>
+            <button class="filter-chip" data-category="diapering">👶 Diapering</button>
+            <button class="filter-chip" data-category="nursery">🛏️ Nursery</button>
+            <button class="filter-chip" data-category="toys">🧸 Toys</button>
+            <button class="filter-chip" data-category="bath_skincare">🛁 Bath</button>
+            <button class="filter-chip" data-category="safety">🔒 Safety</button>
+            <button class="filter-chip" data-category="gear">⚙️ Gear</button>
+            <button class="filter-chip" data-category="mumz">💜 Mumz</button>
+            <button class="filter-chip" data-category="clothing">👟 Clothing</button>
+            <button class="filter-chip" data-category="outdoor">☀️ Outdoor</button>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <main id="products-grid">
+        <div class="grid-container" id="gridContainer">
+            <!-- Products will be rendered here by JS -->
+        </div>
+    </main>
+
+    <!-- Verdict Modal -->
+    <div class="modal-overlay" id="verdictModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            
+            <div class="modal-header" id="modalHeader">
+                <h2 id="modalProductName">Product Name</h2>
+                <p id="modalProductNameAr" class="modal-name-ar">اسم المنتج</p>
+            </div>
+
+            <!-- Loading State -->
+            <div class="verdict-loading" id="verdictLoading">
+                <div class="loading-spinner"></div>
+                <p class="loading-text">Analyzing reviews with AI...</p>
+                <p class="loading-subtext">Synthesizing insights from mom experiences</p>
+            </div>
+
+            <!-- Error State -->
+            <div class="verdict-error" id="verdictError" style="display:none">
+                <div class="error-icon">⚠️</div>
+                <p class="error-text" id="errorText">Something went wrong</p>
+                <button class="retry-btn" id="retryBtn">Try Again</button>
+            </div>
+
+            <!-- Insufficient Data State -->
+            <div class="verdict-insufficient" id="verdictInsufficient" style="display:none">
+                <div class="insufficient-icon">📊</div>
+                <h3>Not Enough Data</h3>
+                <p class="insufficient-reason-en" id="insufficientReasonEn"></p>
+                <p class="insufficient-reason-ar" id="insufficientReasonAr" dir="rtl"></p>
+                <div class="insufficient-reviews" id="insufficientReviews"></div>
+            </div>
+
+            <!-- Verdict Content -->
+            <div class="verdict-content" id="verdictContent" style="display:none">
+                <!-- Score & Confidence -->
+                <div class="score-section">
+                    <div class="score-circle" id="scoreCircle">
+                        <span class="score-value" id="scoreValue">4.2</span>
+                        <span class="score-label">/ 5</span>
+                    </div>
+                    <div class="confidence-meter">
+                        <div class="confidence-label">Confidence</div>
+                        <div class="confidence-bar">
+                            <div class="confidence-fill" id="confidenceFill"></div>
+                        </div>
+                        <div class="confidence-text" id="confidenceText">High (0.85)</div>
+                    </div>
+                    <div class="meta-info">
+                        <span class="meta-item" id="reviewCountBadge">📝 12 reviews analyzed</span>
+                        <span class="meta-item" id="modelBadge">🤖 Llama 3.3 70B</span>
+                        <span class="meta-item" id="timeBadge">⚡ 2.3s</span>
+                    </div>
+                </div>
+
+                <!-- Safety Flags -->
+                <div class="safety-section" id="safetySection" style="display:none">
+                    <h3 class="section-title safety-title">⚠️ Safety Concerns</h3>
+                    <div class="safety-flags" id="safetyFlags"></div>
+                </div>
+
+                <!-- Summary -->
+                <div class="summary-section">
+                    <h3 class="section-title">📋 Summary</h3>
+                    <div class="bilingual-content">
+                        <div class="content-en" id="summaryEn"></div>
+                        <div class="content-ar" id="summaryAr" dir="rtl"></div>
+                    </div>
+                </div>
+
+                <!-- Pros & Cons -->
+                <div class="proscons-section">
+                    <div class="pros-column">
+                        <h3 class="section-title pros-title">✅ Pros</h3>
+                        <ul class="pros-list" id="prosListEn"></ul>
+                        <ul class="pros-list ar-list" id="prosListAr" dir="rtl"></ul>
+                    </div>
+                    <div class="cons-column">
+                        <h3 class="section-title cons-title">❌ Cons</h3>
+                        <ul class="cons-list" id="consListEn"></ul>
+                        <ul class="cons-list ar-list" id="consListAr" dir="rtl"></ul>
+                    </div>
+                </div>
+
+                <!-- Age Suitability & Value -->
+                <div class="details-section">
+                    <div class="detail-card" id="ageSuitabilityCard">
+                        <h4>👶 Age Suitability</h4>
+                        <p id="ageSuitabilityEn"></p>
+                        <p id="ageSuitabilityAr" dir="rtl" class="ar-text"></p>
+                    </div>
+                    <div class="detail-card" id="valueCard">
+                        <h4>💰 Value for Money</h4>
+                        <div class="value-score" id="valueScore"></div>
+                    </div>
+                </div>
+
+                <!-- Final Verdict -->
+                <div class="verdict-final">
+                    <h3 class="section-title">🏆 The Verdict</h3>
+                    <div class="verdict-box">
+                        <p class="verdict-text-en" id="verdictTextEn"></p>
+                        <p class="verdict-text-ar" id="verdictTextAr" dir="rtl"></p>
+                    </div>
+                </div>
+
+                <!-- Confidence Reasoning -->
+                <div class="confidence-reasoning">
+                    <details>
+                        <summary>Why this confidence level?</summary>
+                        <p id="confidenceReasoning"></p>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Moms Verdict — AI Intern Assessment for <strong>Mumzworld</strong> | Built by Jayesh Muley</p>
+        <p class="footer-note">Powered by OpenRouter + Llama 3.3 70B | Synthetic data — does not represent real products</p>
+    </footer>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

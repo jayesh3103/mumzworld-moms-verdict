@@ -1,0 +1,22 @@
+[
+  {"id":"prod_001","name_en":"ComfyRide 360 Convertible Car Seat","name_ar":"مقعد سيارة كومفي رايد 360 القابل للتحويل","category":"car_seats","brand":"ComfyRide","price_aed":1299.00,"age_range":"0-12 years"},
+  {"id":"prod_002","name_en":"BreezeLite Pro Stroller","name_ar":"عربة بريز لايت برو","category":"strollers","brand":"BreezeLite","price_aed":899.00,"age_range":"0-4 years"},
+  {"id":"prod_003","name_en":"NaturFlow Anti-Colic Baby Bottle 260ml","name_ar":"رضاعة ناتشر فلو المضادة للمغص 260 مل","category":"feeding","brand":"NaturFlow","price_aed":49.00,"age_range":"0-24 months"},
+  {"id":"prod_004","name_en":"PureSoft Premium Diapers Size 4 (76 Count)","name_ar":"حفاضات بيور سوفت الفاخرة مقاس 4 (76 قطعة)","category":"diapering","brand":"PureSoft","price_aed":89.00,"age_range":"9-14 kg"},
+  {"id":"prod_005","name_en":"DreamNest Portable Baby Crib","name_ar":"سرير أطفال دريم نست المتنقل","category":"nursery","brand":"DreamNest","price_aed":649.00,"age_range":"0-18 months"},
+  {"id":"prod_006","name_en":"TinyChef Silicone Baby Food Set (12 Pieces)","name_ar":"طقم طعام أطفال تايني شيف سيليكون (12 قطعة)","category":"feeding","brand":"TinyChef","price_aed":129.00,"age_range":"6-36 months"},
+  {"id":"prod_007","name_en":"GentleTouch Baby Shampoo & Wash 500ml","name_ar":"شامبو وغسول جنتل تتش للأطفال 500 مل","category":"bath_skincare","brand":"GentleTouch","price_aed":39.00,"age_range":"0+ months"},
+  {"id":"prod_008","name_en":"StackMaster Wooden Learning Blocks (50 Pieces)","name_ar":"مكعبات تعليمية خشبية ستاك ماستر (50 قطعة)","category":"toys","brand":"StackMaster","price_aed":79.00,"age_range":"1-5 years"},
+  {"id":"prod_009","name_en":"MomEase Nursing Pillow","name_ar":"وسادة الرضاعة موم إيز","category":"mumz","brand":"MomEase","price_aed":189.00,"age_range":"For mom"},
+  {"id":"prod_010","name_en":"SafeGuard Baby Monitor with Camera","name_ar":"جهاز مراقبة الأطفال سيف جارد مع كاميرا","category":"safety","brand":"SafeGuard","price_aed":449.00,"age_range":"0+ months"},
+  {"id":"prod_011","name_en":"LittleSteps First Walker Shoes","name_ar":"حذاء المشي الأول ليتل ستيبس","category":"clothing","brand":"LittleSteps","price_aed":119.00,"age_range":"9-18 months"},
+  {"id":"prod_012","name_en":"AquaSplash Baby Float with Canopy","name_ar":"عوامة أطفال أكوا سبلاش مع مظلة","category":"outdoor","brand":"AquaSplash","price_aed":99.00,"age_range":"6-36 months"},
+  {"id":"prod_013","name_en":"SmartStart Baby Carrier Ergonomic","name_ar":"حاملة أطفال سمارت ستارت المريحة","category":"gear","brand":"SmartStart","price_aed":349.00,"age_range":"0-3 years"},
+  {"id":"prod_014","name_en":"PureAir Nursery Humidifier","name_ar":"جهاز ترطيب الهواء بيور إير للحضانة","category":"nursery","brand":"PureAir","price_aed":199.00,"age_range":"0+ months"},
+  {"id":"prod_015","name_en":"BabyBliss Organic Cotton Swaddle Set (3 Pack)","name_ar":"طقم لفائف قطن عضوي بيبي بليس (3 قطع)","category":"nursery","brand":"BabyBliss","price_aed":149.00,"age_range":"0-6 months"},
+  {"id":"prod_016","name_en":"MunchTime Silicone Teething Toy","name_ar":"لعبة تسنين سيليكون مانش تايم","category":"toys","brand":"MunchTime","price_aed":35.00,"age_range":"3-12 months"},
+  {"id":"prod_017","name_en":"CozyWrap Baby Blanket Organic Muslin","name_ar":"بطانية أطفال كوزي راب قماش موسلين عضوي","category":"nursery","brand":"CozyWrap","price_aed":69.00,"age_range":"0+ months"},
+  {"id":"prod_018","name_en":"SipSmart Insulated Toddler Cup","name_ar":"كوب سيب سمارت المعزول للأطفال الصغار","category":"feeding","brand":"SipSmart","price_aed":59.00,"age_range":"12-48 months"},
+  {"id":"prod_019","name_en":"QuietNight White Noise Machine","name_ar":"جهاز الضوضاء البيضاء كوايت نايت","category":"nursery","brand":"QuietNight","price_aed":129.00,"age_range":"0+ months"},
+  {"id":"prod_020","name_en":"FreshPrep Baby Food Maker & Steamer","name_ar":"جهاز تحضير وتبخير طعام الأطفال فريش بريب","category":"feeding","brand":"FreshPrep","price_aed":399.00,"age_range":"4+ months"}
+]
